@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexa - Bot Discord</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body, html {
-      margin: 0;
-      padding: 0;
       height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #5865F2, #2c2f33);
@@ -18,7 +18,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 15px 20px;
       position: fixed;
       width: 100%;
       top: 0;
@@ -32,13 +32,11 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      margin-right: 20px;
+      margin-left: 15px;
       transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #7289da;
-    }
+    nav a:hover { color: #7289da; }
 
     .hero {
       display: flex;
@@ -58,9 +56,7 @@
       transition: transform 0.3s ease;
     }
 
-    .hero img:hover {
-      transform: rotate(10deg) scale(1.05);
-    }
+    .hero img:hover { transform: rotate(10deg) scale(1.05); }
 
     .hero h1 {
       font-size: 36px;
@@ -96,7 +92,6 @@
       .hero h1 { font-size: 28px; }
       .hero p { font-size: 16px; }
       .hero a.invite-btn { padding: 15px 30px; font-size: 18px; }
-      nav { padding: 15px 20px; }
     }
   </style>
 </head>
