@@ -5,35 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commandes Nexa</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    body, html {
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #5865F2, #2c2f33);
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
       min-height: 100vh;
-      padding-top: 50px;
     }
+
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(35,39,42,0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #7289da;
+    }
+
     .card {
       background: #23272a;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      max-width: 500px;
-      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 50px auto;
     }
+
     .card h1 {
       color: #7289da;
       margin-bottom: 20px;
       text-align: center;
     }
+
     .card ul {
       list-style: none;
       padding: 0;
     }
+
     .card li {
       background: #2c2f33;
       margin-bottom: 10px;
@@ -41,6 +66,7 @@
       border-radius: 8px;
       font-size: 16px;
     }
+
     a.back-btn {
       display: inline-block;
       margin-top: 20px;
@@ -51,12 +77,22 @@
       text-decoration: none;
       transition: 0.3s;
     }
+
     a.back-btn:hover {
       background: #4752C4;
+    }
+
+    @media screen and (max-width: 600px) {
+      .card { margin: 120px 20px 50px 20px; }
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="index.html">🏠 Accueil</a>
+  </nav>
+
   <div class="card">
     <h1>📜 Commandes de Nexa</h1>
     <ul>
@@ -80,5 +116,6 @@
     </ul>
     <a class="back-btn" href="index.html">⬅️ Retour</a>
   </div>
+
 </body>
 </html>
