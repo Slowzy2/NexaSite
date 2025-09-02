@@ -3,102 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inviter Nexa - Bot Discord</title>
+  <title>Nexa - Bot Discord</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    body, html {
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #5865F2, #2c2f33);
       color: #fff;
     }
 
-    .card {
-      background: #23272a;
-      padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(35,39,42,0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 10;
     }
 
-    .card img {
-      width: 100px;
-      height: 100px;
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #7289da;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .hero img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       margin-bottom: 20px;
       transition: transform 0.3s ease;
     }
 
-    .card img:hover {
+    .hero img:hover {
       transform: rotate(10deg) scale(1.05);
     }
 
-    .card h1 {
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
       color: #7289da;
-      margin-bottom: 15px;
     }
 
-    .card p {
-      font-size: 16px;
-      margin-bottom: 25px;
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
       color: #ccc;
     }
 
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    a.invite-btn, a.command-btn {
+    .hero a.invite-btn {
       display: inline-block;
-      padding: 15px 25px;
-      font-size: 18px;
-      color: white;
+      padding: 18px 40px;
+      font-size: 20px;
+      color: #fff;
+      background: #5865F2;
       border-radius: 12px;
       text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    a.invite-btn {
-      background: #5865F2;
-    }
-
-    a.invite-btn:hover {
+    .hero a.invite-btn:hover {
       background: #4752C4;
       transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
 
-    a.command-btn {
-      background: #43B581; 
-    }
-
-    a.command-btn:hover {
-      background: #36996E;
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    @media screen and (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 16px; }
+      .hero a.invite-btn { padding: 15px 30px; font-size: 18px; }
+      nav { padding: 15px 20px; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+
+  <nav>
+    <a href="commandes.html">📜 Documentation</a>
+  </nav>
+
+  <div class="hero">
     <img src="logo.png" alt="Logo Nexa">
     <h1>🚀 Inviter Nexa à votre serveur Discord</h1>
-    <p>Clique sur un bouton ci-dessous pour inviter le bot ou voir toutes ses commandes.</p>
-
-    <div class="button-container">
-      <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1394347219867664447&permissions=8&integration_type=0&scope=bot" target="_blank">➕ Inviter le Bot</a>
-      <a class="command-btn" href="commandes.html">📜 Commandes</a>
-    </div>
+    <p>Clique sur le bouton ci-dessous pour ajouter Nexa à ton serveur.</p>
+    <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1394347219867664447&permissions=8&integration_type=0&scope=bot" target="_blank">➕ Inviter le Bot</a>
   </div>
+
 </body>
 </html>
