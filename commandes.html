@@ -36,8 +36,16 @@
       transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #7289da;
+    nav a:hover { color: #7289da; }
+
+    select.language {
+      background: #2c2f33;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .card {
@@ -79,9 +87,7 @@
       transition: 0.3s;
     }
 
-    a.back-btn:hover {
-      background: #4752C4;
-    }
+    a.back-btn:hover { background: #4752C4; }
 
     @media screen and (max-width: 600px) {
       .card { margin: 120px 20px 50px 20px; }
@@ -92,39 +98,77 @@
 
   <nav>
     <div class="left">
-      <a href="index.html">🏠 Accueil</a>
+      <a href="index.html" data-key="home">🏠 Accueil</a>
     </div>
     <div class="right">
-      <a href="https://discord.gg/K5VaPW9Cxe" target="_blank">💬 Support</a>
+      <a href="https://discord.gg/K5VaPW9Cxe" target="_blank" data-key="support">💬 Support</a>
+      <select class="language" id="lang">
+        <option value="fr">🇫🇷 FR</option>
+        <option value="en">🇬🇧 EN</option>
+      </select>
     </div>
   </nav>
 
   <div class="card">
-    <h1>📜 Commandes de Nexa</h1>
+    <h1 data-key="title">📜 Commandes de Nexa</h1>
     <ul>
-      <li>!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.</li>
-      <li>!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.</li>
-      <li>!comptearebours [temps] [message] - Crée un compte à rebours avec un message.</li>
-      <li>!avatar [utilisateur] - Affiche l’avatar d’un utilisateur.</li>
-      <li>!botinfo - Affiche les informations du bot (version, créateur, etc.).</li>
-      <li>!gameinfo [nom du jeu] - Donne les informations d’un jeu vidéo.</li>
-      <li>!populargames - Affiche la liste des jeux les plus populaires.</li>
-      <li>!anime [nom] - Donne les informations sur un anime.</li>
-      <li>!wiki [terme] - Recherche un terme sur Wikipédia et renvoie un résumé.</li>
-      <li>!clear [nombre] - Supprime le nombre de messages spécifié dans le canal.</li>
-      <li>!bringall - Déplace tous les membres d’un canal vocal vers le tien.</li>
-      <li>!ping - Vérifie la latence du bot</li>
-      <li>!userinfo - Affiche les informations d’un utilisateur</li>
-      <li>!serverinfo - Affiche les informations du serveur</li>
-      <li>!météo [ville] - Donne la météo</li>
-      <li>!rappel [texte] [temps] - Crée un rappel</li>
-      <li>!mdp - Génère un mot de passe aléatoire</li>
+      <li data-key="cmd-trad">!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.</li>
+      <li data-key="cmd-embed">!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.</li>
+      <li data-key="cmd-ping">!ping - Vérifie la latence du bot</li>
+      <li data-key="cmd-userinfo">!userinfo - Affiche les informations d’un utilisateur</li>
+      <li data-key="cmd-serverinfo">!serverinfo - Affiche les informations du serveur</li>
+      <li data-key="cmd-meteo">!météo [ville] - Donne la météo</li>
     </ul>
-    <a class="back-btn" href="index.html">⬅️ Retour</a>
+    <a class="back-btn" href="index.html" data-key="back">⬅️ Retour</a>
   </div>
+
+  <script>
+    const translations = {
+      fr: {
+        home: "🏠 Accueil",
+        support: "💬 Support",
+        title: "📜 Commandes de Nexa",
+        cmd-trad: "!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.",
+        cmd-embed: "!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.",
+        cmd-ping: "!ping - Vérifie la latence du bot",
+        cmd-userinfo: "!userinfo - Affiche les informations d’un utilisateur",
+        cmd-serverinfo: "!serverinfo - Affiche les informations du serveur",
+        cmd-meteo: "!météo [ville] - Donne la météo",
+        back: "⬅️ Retour"
+      },
+      en: {
+        home: "🏠 Home",
+        support: "💬 Support",
+        title: "📜 Nexa Commands",
+        cmd-trad: "!trad [text] [language] - Translates text into the specified language.",
+        cmd-embed: "!embed [title] [description] - Creates a custom embed message.",
+        cmd-ping: "!ping - Checks the bot latency",
+        cmd-userinfo: "!userinfo - Shows user information",
+        cmd-serverinfo: "!serverinfo - Shows server information",
+        cmd-meteo: "!weather [city] - Shows the weather",
+        back: "⬅️ Back"
+      }
+    };
+
+    const langSelect = document.getElementById("lang");
+    const savedLang = localStorage.getItem("lang") || "fr";
+    langSelect.value = savedLang;
+
+    function applyTranslations(language) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        el.textContent = translations[language][key];
+      });
+    }
+
+    langSelect.addEventListener("change", () => {
+      const newLang = langSelect.value;
+      localStorage.setItem("lang", newLang);
+      applyTranslations(newLang);
+    });
+
+    applyTranslations(savedLang);
+  </script>
 
 </body>
 </html>
-
-
-
