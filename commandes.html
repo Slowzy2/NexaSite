@@ -36,7 +36,9 @@
       transition: 0.3s;
     }
 
-    nav a:hover { color: #7289da; }
+    nav a:hover {
+      color: #7289da;
+    }
 
     select.language {
       background: #2c2f33;
@@ -46,7 +48,7 @@
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
-      margin-right: 15px; 
+      margin-right: 15px;
     }
 
     .card {
@@ -88,7 +90,9 @@
       transition: 0.3s;
     }
 
-    a.back-btn:hover { background: #4752C4; }
+    a.back-btn:hover {
+      background: #4752C4;
+    }
 
     @media screen and (max-width: 600px) {
       .card { margin: 120px 20px 50px 20px; }
@@ -111,14 +115,25 @@
   </nav>
 
   <div class="card">
-    <h1 data-key="title">📜 Commandes de Nexa</h1>
-    <ul>
-      <li data-key="cmd-trad">!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.</li>
-      <li data-key="cmd-embed">!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.</li>
-      <li data-key="cmd-ping">!ping - Vérifie la latence du bot</li>
-      <li data-key="cmd-userinfo">!userinfo - Affiche les informations d’un utilisateur</li>
-      <li data-key="cmd-serverinfo">!serverinfo - Affiche les informations du serveur</li>
-      <li data-key="cmd-meteo">!météo [ville] - Donne la météo</li>
+    <h1 data-key="commandsTitle">📜 Commandes de Nexa</h1>
+    <ul id="commands-list">
+      <li data-key="trad">!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.</li>
+      <li data-key="embed">!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.</li>
+      <li data-key="compte">!comptearebours [temps] [message] - Crée un compte à rebours avec un message.</li>
+      <li data-key="avatar">!avatar [utilisateur] - Affiche l’avatar d’un utilisateur.</li>
+      <li data-key="botinfo">!botinfo - Affiche les informations du bot (version, créateur, etc.).</li>
+      <li data-key="gameinfo">!gameinfo [nom du jeu] - Donne les informations d’un jeu vidéo.</li>
+      <li data-key="populargames">!populargames - Affiche la liste des jeux les plus populaires.</li>
+      <li data-key="anime">!anime [nom] - Donne les informations sur un anime.</li>
+      <li data-key="wiki">!wiki [terme] - Recherche un terme sur Wikipédia et renvoie un résumé.</li>
+      <li data-key="clear">!clear [nombre] - Supprime le nombre de messages spécifié dans le canal.</li>
+      <li data-key="bringall">!bringall - Déplace tous les membres d’un canal vocal vers le tien.</li>
+      <li data-key="ping">!ping - Vérifie la latence du bot.</li>
+      <li data-key="userinfo">!userinfo - Affiche les informations d’un utilisateur.</li>
+      <li data-key="serverinfo">!serverinfo - Affiche les informations du serveur.</li>
+      <li data-key="meteo">!météo [ville] - Donne la météo.</li>
+      <li data-key="rappel">!rappel [texte] [temps] - Crée un rappel.</li>
+      <li data-key="mdp">!mdp - Génère un mot de passe aléatoire.</li>
     </ul>
     <a class="back-btn" href="index.html" data-key="back">⬅️ Retour</a>
   </div>
@@ -128,47 +143,61 @@
       fr: {
         home: "🏠 Accueil",
         support: "💬 Support",
-        title: "📜 Commandes de Nexa",
-        cmd-trad: "!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.",
-        cmd-embed: "!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.",
-        cmd-ping: "!ping - Vérifie la latence du bot",
-        cmd-userinfo: "!userinfo - Affiche les informations d’un utilisateur",
-        cmd-serverinfo: "!serverinfo - Affiche les informations du serveur",
-        cmd-meteo: "!météo [ville] - Donne la météo",
+        commandsTitle: "📜 Commandes de Nexa",
+        trad: "!trad [texte] [langue] - Traduit un texte dans la langue spécifiée.",
+        embed: "!embed [titre] [description] - Crée un message enrichi (embed) personnalisé.",
+        compte: "!comptearebours [temps] [message] - Crée un compte à rebours avec un message.",
+        avatar: "!avatar [utilisateur] - Affiche l’avatar d’un utilisateur.",
+        botinfo: "!botinfo - Affiche les informations du bot (version, créateur, etc.).",
+        gameinfo: "!gameinfo [nom du jeu] - Donne les informations d’un jeu vidéo.",
+        populargames: "!populargames - Affiche la liste des jeux les plus populaires.",
+        anime: "!anime [nom] - Donne les informations sur un anime.",
+        wiki: "!wiki [terme] - Recherche un terme sur Wikipédia et renvoie un résumé.",
+        clear: "!clear [nombre] - Supprime le nombre de messages spécifié dans le canal.",
+        bringall: "!bringall - Déplace tous les membres d’un canal vocal vers le tien.",
+        ping: "!ping - Vérifie la latence du bot.",
+        userinfo: "!userinfo - Affiche les informations d’un utilisateur.",
+        serverinfo: "!serverinfo - Affiche les informations du serveur.",
+        meteo: "!météo [ville] - Donne la météo.",
+        rappel: "!rappel [texte] [temps] - Crée un rappel.",
+        mdp: "!mdp - Génère un mot de passe aléatoire.",
         back: "⬅️ Retour"
       },
       en: {
         home: "🏠 Home",
         support: "💬 Support",
-        title: "📜 Nexa Commands",
-        cmd-trad: "!trad [text] [language] - Translates text into the specified language.",
-        cmd-embed: "!embed [title] [description] - Creates a custom embed message.",
-        cmd-ping: "!ping - Checks the bot latency",
-        cmd-userinfo: "!userinfo - Shows user information",
-        cmd-serverinfo: "!serverinfo - Shows server information",
-        cmd-meteo: "!weather [city] - Shows the weather",
+        commandsTitle: "📜 Nexa Commands",
+        trad: "!trad [text] [language] - Translates text into the specified language.",
+        embed: "!embed [title] [description] - Creates a custom embed message.",
+        compte: "!comptearebours [time] [message] - Creates a countdown with a message.",
+        avatar: "!avatar [user] - Shows a user's avatar.",
+        botinfo: "!botinfo - Displays information about the bot (version, creator, etc.).",
+        gameinfo: "!gameinfo [game name] - Provides information about a video game.",
+        populargames: "!populargames - Shows the most popular games.",
+        anime: "!anime [name] - Provides information about an anime.",
+        wiki: "!wiki [term] - Searches Wikipedia and returns a summary.",
+        clear: "!clear [number] - Deletes the specified number of messages in the channel.",
+        bringall: "!bringall - Moves all members of a voice channel to yours.",
+        ping: "!ping - Checks the bot's latency.",
+        userinfo: "!userinfo - Shows information about a user.",
+        serverinfo: "!serverinfo - Shows information about the server.",
+        meteo: "!météo [city] - Provides the weather.",
+        rappel: "!rappel [text] [time] - Creates a reminder.",
+        mdp: "!mdp - Generates a random password.",
         back: "⬅️ Back"
       }
     };
 
     const langSelect = document.getElementById("lang");
-    const savedLang = localStorage.getItem("lang") || "fr";
-    langSelect.value = savedLang;
-
-    function applyTranslations(language) {
-      document.querySelectorAll("[data-key]").forEach(el => {
-        const key = el.getAttribute("data-key");
-        el.textContent = translations[language][key];
-      });
-    }
+    const elements = document.querySelectorAll("[data-key]");
 
     langSelect.addEventListener("change", () => {
-      const newLang = langSelect.value;
-      localStorage.setItem("lang", newLang);
-      applyTranslations(newLang);
+      const lang = langSelect.value;
+      elements.forEach(el => {
+        const key = el.getAttribute("data-key");
+        el.textContent = translations[lang][key];
+      });
     });
-
-    applyTranslations(savedLang);
   </script>
 
 </body>
