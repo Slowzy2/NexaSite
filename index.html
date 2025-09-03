@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -37,6 +37,16 @@
     }
 
     nav a:hover { color: #7289da; }
+
+    select.language {
+      background: #2c2f33;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
     .hero {
       display: flex;
@@ -99,21 +109,61 @@
 
   <nav>
     <div class="left">
-      <a href="commandes.html">📜 Documentation</a>
+      <a href="commandes.html" data-key="docs">📜 Documentation</a>
     </div>
     <div class="right">
-      <a href="https://discord.gg/K5VaPW9Cxe" target="_blank">💬 Support</a>
+      <a href="https://discord.gg/K5VaPW9Cxe" target="_blank" data-key="support">💬 Support</a>
+      <select class="language" id="lang">
+        <option value="fr">🇫🇷 FR</option>
+        <option value="en">🇬🇧 EN</option>
+      </select>
     </div>
   </nav>
 
   <div class="hero">
     <img src="logo.png" alt="Logo Nexa">
-    <h1>🚀 Inviter Nexa à votre serveur Discord</h1>
-    <p>Clique sur le bouton ci-dessous pour ajouter Nexa à ton serveur.</p>
-    <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1394347219867664447&permissions=8&integration_type=0&scope=bot" target="_blank">➕ Inviter le Bot</a>
+    <h1 data-key="title">🚀 Inviter Nexa à votre serveur Discord</h1>
+    <p data-key="desc">Clique sur le bouton ci-dessous pour ajouter Nexa à ton serveur.</p>
+    <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1394347219867664447&permissions=8&integration_type=0&scope=bot" target="_blank" data-key="invite">➕ Inviter le Bot</a>
   </div>
+
+  <script>
+    const translations = {
+      fr: {
+        docs: "📜 Documentation",
+        support: "💬 Support",
+        title: "🚀 Inviter Nexa à votre serveur Discord",
+        desc: "Clique sur le bouton ci-dessous pour ajouter Nexa à ton serveur.",
+        invite: "➕ Inviter le Bot"
+      },
+      en: {
+        docs: "📜 Documentation",
+        support: "💬 Support",
+        title: "🚀 Invite Nexa to your Discord server",
+        desc: "Click the button below to add Nexa to your server.",
+        invite: "➕ Invite the Bot"
+      }
+    };
+
+    const langSelect = document.getElementById("lang");
+    const savedLang = localStorage.getItem("lang") || "fr";
+    langSelect.value = savedLang;
+
+    function applyTranslations(language) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        el.textContent = translations[language][key];
+      });
+    }
+
+    langSelect.addEventListener("change", () => {
+      const newLang = langSelect.value;
+      localStorage.setItem("lang", newLang);
+      applyTranslations(newLang);
+    });
+
+    applyTranslations(savedLang);
+  </script>
 
 </body>
 </html>
-
-
